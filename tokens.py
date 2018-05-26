@@ -7,6 +7,8 @@ ID = 'ID'
 OPERATOR = 'OPERATOR'
 PRINT = 'PRINT'
 EQUALS = 'EQUALS'
+END = 'END'
+
 
 token_exprs = [
     (r'[\n\t]+',                None),
@@ -17,6 +19,7 @@ token_exprs = [
     (r'\*',                     OPERATOR),
     (r'/',                      OPERATOR),
     (r'print',                  PRINT),
+    (r';',                      END),
     (r'[0-9]+',                 INT),
     (r'[A-Za-z][A-Za-z0-9_]',   ID),
 ]
