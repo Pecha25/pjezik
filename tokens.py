@@ -11,8 +11,8 @@ END = 'END'
 
 
 token_exprs = [
-    (r'[\n\t]+',                None),
-    (r'#[^\n]*',                None),
+    (r'[\n\t]+',                None),  #Nova linija / Tab
+    (r'[^\n]*',                None),  #Komentar
     (r'\=',                     EQUALS),
     (r'\+',                     OPERATOR),
     (r'-',                      OPERATOR),
@@ -21,5 +21,8 @@ token_exprs = [
     (r'print',                  PRINT),
     (r';',                      END),
     (r'[0-9]+',                 INT),
-    (r'[A-Za-z][A-Za-z0-9_]',   ID),
+    (r'[A-Za-z][A-Za-z0-9_]*',  ID),
 ]
+
+def imp_lex(characters):
+    return lexer.lex(characters, token_exprs)
