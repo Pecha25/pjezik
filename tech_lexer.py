@@ -1,4 +1,4 @@
-import lexer
+import lexing
 import re
 
 RESERVED = 'RESERVED'
@@ -12,7 +12,7 @@ END = 'END'
 
 token_exprs = [
     (r'[\n\t]+',                None),  #Nova linija / Tab
-    (r'[^\n]*',                None),  #Komentar
+    (r'[^\n]*',                 None),  #Komentar
     (r'\=',                     EQUALS),
     (r'\+',                     OPERATOR),
     (r'-',                      OPERATOR),
@@ -24,5 +24,5 @@ token_exprs = [
     (r'[A-Za-z][A-Za-z0-9_]*',  ID),
 ]
 
-def imp_lex(characters):
+def tech_lex(characters):
     return lexer.lex(characters, token_exprs)
