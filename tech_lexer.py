@@ -2,27 +2,27 @@ import lexing
 import re
 
 RESERVED = 'RESERVED'
-INT = 'INT'
-ID = 'ID'
+BROJ = 'BROJ'
+IME = 'IME'
 OPERATOR = 'OPERATOR'
-PRINT = 'PRINT'
-EQUALS = 'EQUALS'
-END = 'END'
+ISPIS = 'ISPIS'
+DODELA = 'DODELA'
+KRAJ = 'KRAJ'
 
 
 token_exprs = [
-    (r'[\n\t]+',                None),  #Nova linija / Tab
-    (r'[^\n]*',                 None),  #Komentar
-    (r'\=',                     EQUALS),
+    (r'[\n\t]+',                None),  #Praznine
+    (r'(\/\/.*\/\/)',           None),  #Komentar
+    (r'\=',                     DODELA),
     (r'\+',                     OPERATOR),
     (r'-',                      OPERATOR),
     (r'\*',                     OPERATOR),
     (r'/',                      OPERATOR),
-    (r'print',                  PRINT),
-    (r';',                      END),
-    (r'[0-9]+',                 INT),
-    (r'[A-Za-z][A-Za-z0-9_]*',  ID),
+    (r'stampaj',                ISPIS),
+    (r';',                      KRAJ),
+    (r'[0-9]+',                 BROJ),
+    (r'[A-Za-z][A-Za-z0-9_]*',  IME),
 ]
 
 def tech_lex(characters):
-    return lexer.lex(characters, token_exprs)
+    return lexing.lex(characters, token_exprs)
