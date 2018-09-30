@@ -11,7 +11,7 @@ KRAJ = 'KRAJ'
 
 
 token_exprs = [
-    (r'[\n\t]+',                None),  #Praznine
+    (r'[\n\t ]+',               None),  #Praznine
     (r'(\/\/.*\/\/)',           None),  #Komentar
     (r'\=',                     DODELA),
     (r'\+',                     OPERATOR),

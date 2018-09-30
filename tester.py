@@ -2,8 +2,8 @@ import sys
 from tech_lexer import *
 
 if __name__ == '__main__':
-    filename = sys.argv[1]
-    file = open(filename)
+    #filename = sys.argv[1]
+    file = open('tekst.txt')
     characters = file.read()
     file.close()
     tokens = tech_lex(characters)
