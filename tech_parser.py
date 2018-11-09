@@ -11,6 +11,14 @@ id = Tag(IME)
 
 num = Tag(BROJ) ^ (lambda i: int(i))
 
+#GLAVNI PARSERI
+def parser():
+    return Phrase(stmt_list())
+
+def tech_parse(tokens):
+    ast = parser()(tokens, 0)
+    return ast
+
 #ARITMETIČKE OPERACIJE
 def aexp():
     return precedence(aexp_term(), aexp_precedence_levels, process_binop)
@@ -67,7 +75,6 @@ def if_stmt():
            keyword('then') + Lazy(stmt_list) + \
            Opt(keyword('else') + Lazy(stmt_list)) + \
            keyword('end') ^ process
-
 
 def while_stmt():
     def process(parsed):

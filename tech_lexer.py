@@ -1,4 +1,4 @@
-import lexing
+import tech_lexing
 import re
 
 RESERVED = 'RESERVED'
@@ -35,4 +35,4 @@ token_exprs = [
 ]
 
 def tech_lex(characters):
-    return lexing.lex(characters, token_exprs)
+    return tech_lexing.lex(characters, token_exprs)
